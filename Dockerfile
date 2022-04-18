@@ -2,7 +2,7 @@ FROM alpine:latest
 
 LABEL author=monlor
 
-RUN apk update && apk add --no-cache age && \
+RUN apk update && apk add --no-cache age curl && \
     # k8s 工具
     curl -Lo /usr/local/bin/kubectl "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && chmod +x /usr/local/bin/kubectl && \
     curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash && \
