@@ -94,11 +94,12 @@ jobs:
       
       - name: Notification
         uses: monlor/bark-action@v3
+        if: always()
         with:
           host: ${{ secrets.BARK_HOST}} # not required
           key: ${{ secrets.BARK_KEY }}   # Your secret key
           title: Github Actions
-          body: '${{ github.repository }}发布完成！'
+          body: '${{ github.repository }} ran ${{ job.status }}！'
           isArchive: 1
           url: 'github://github.com/${{ github.repository }}'
           group: Github
