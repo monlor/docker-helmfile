@@ -104,4 +104,4 @@ jobs:
           url: 'github://github.com/${{ github.repository }}'
           group: Github
           icon: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
-          copy: '${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }}'
+          copy: ${{ steps.meta.outputs.tags }}
