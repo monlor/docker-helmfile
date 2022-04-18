@@ -2,13 +2,13 @@ FROM alpine:latest
 
 LABEL author=monlor
 
-ENV HELM_VERSION="3.8.0"
+ENV HELM_VERSION="v3.8.0"
 
 ENV HELMFILE_VERSION="v0.144.0"
 
 ENV SOPS_VERSION="v3.7.2"
 
-RUN apk update && apk add --no-cache age curl git && \
+RUN apk update && apk add --no-cache age curl git bash && \
     # k8s 工具
     curl -Lo /usr/local/bin/kubectl "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
     chmod +x /usr/local/bin/kubectl && \
