@@ -8,7 +8,7 @@ ENV HELMFILE_VERSION="v0.144.0"
 
 ENV SOPS_VERSION="v3.7.2"
 
-RUN apk update && apk add --no-cache age curl git bash vim && \
+RUN apk update && apk add --no-cache age curl git bash vim make && \
     # k8s 工具
     curl -Lo /usr/local/bin/kubectl "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
     # 安装 helm
