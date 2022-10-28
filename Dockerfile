@@ -8,6 +8,8 @@ ENV HELMFILE_VERSION="v0.144.0"
 
 ENV SOPS_VERSION="v3.7.2"
 
+ENV YQ_VERSION="v4.28.2"
+
 RUN apk update && apk add --no-cache age curl git bash vim make && \
     # k8s 工具
     curl -Lo /usr/local/bin/kubectl "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
@@ -19,6 +21,8 @@ RUN apk update && apk add --no-cache age curl git bash vim make && \
     curl -Lo /usr/local/bin/helmfile https://github.com/roboll/helmfile/releases/download/${HELMFILE_VERSION}/helmfile_linux_amd64 && \
     # 安装 sops
     curl -Lo /usr/local/bin/sops https://github.com/mozilla/sops/releases/download/${SOPS_VERSION}/sops-${SOPS_VERSION}.linux.amd64 && \
+    # yq
+    curl -Lo /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64 && \
     # 授权
     chmod 0755 /usr/local/bin/* && \
     # 安装helm插件
