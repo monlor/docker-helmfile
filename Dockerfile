@@ -10,7 +10,7 @@ ENV SOPS_VERSION="v3.7.2"
 
 ENV YQ_VERSION="v4.28.2"
 
-RUN apk update && apk add --no-cache age curl git bash vim make && \
+RUN apk update && apk add --no-cache age curl git bash vim make kubectx && \
     # k8s 工具
     curl -Lo /usr/local/bin/kubectl "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
     # 安装 helm
@@ -26,5 +26,5 @@ RUN apk update && apk add --no-cache age curl git bash vim make && \
     # 授权
     chmod 0755 /usr/local/bin/* && \
     # 安装helm插件
-    helm plugin install https://github.com/jkroepke/helm-secrets && \
-    helm plugin install https://github.com/databus23/helm-diff
+    helm plugin install https://github.com/jkroepke/helm-secrets --version v4.1.1 && \
+    helm plugin install https://github.com/databus23/helm-diff --version v3.6.0
