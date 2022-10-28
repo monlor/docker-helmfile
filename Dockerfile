@@ -26,5 +26,5 @@ RUN apk update && apk add --no-cache age curl git bash vim make kubectx && \
     # 授权
     chmod 0755 /usr/local/bin/* && \
     # 安装helm插件
-    helm plugin install https://github.com/jkroepke/helm-secrets --version v4.1.1 && \
+    helm plugin install https://github.com/jkroepke/helm-secrets --version v3.13.0 && \
     helm plugin install https://github.com/databus23/helm-diff --version v3.6.0
